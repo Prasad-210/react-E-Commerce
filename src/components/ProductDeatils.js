@@ -1,17 +1,26 @@
 import { useParams } from "react-router-dom";
 import useGetProductDetails from "../hooks/usegetProductDetails";
+import { useDispatch } from "react-redux";
+import {addItems} from '../store/cartSlice'
 
 const ProductDeatils = () => {
   const { productId } = useParams();
   const singlProduct = useGetProductDetails(productId);
+  const dispatch = useDispatch()
 
-  if (singlProduct === null) return <h1 className="text-center text-xl">Loading....</h1>;
+  if (singlProduct === null)
+    return <h1 className="text-center text-xl">Loading....</h1>;
 
   const { image, description, title, price, rating } = singlProduct;
 
+  const handleCartItems = ()=>{
+    dispatch(addItems(singlProduct))
+  }
   return (
     <>
-      <h1 className="text-4xl font-semibold text-center text-gray-800 my-6">Product Details Page</h1>
+      <h1 className="text-4xl font-semibold text-center text-gray-800 my-6">
+        Product Details Page
+      </h1>
       <div className="flex flex-col lg:flex-row items-center justify-center p-6 bg-gray-50 rounded-lg shadow-md mb-14">
         {/* Product Image */}
         <div className="mb-6 lg:mb-0 lg:w-1/3">
@@ -33,6 +42,10 @@ const ProductDeatils = () => {
             Rating: {rating?.rate} <span>⭐</span>
           </p>
           <h4 className="text-xl font-bold text-gray-900">Price: ${price}</h4>
+          {/* Add to card btn*/}
+          <button onClick={handleCartItems} className="border border-violet-600 text-white bg-violet-400 px-2 py-1 rounded-md mt-6">
+            Add to cart
+          </button>
         </div>
       </div>
     </>

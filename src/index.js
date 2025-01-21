@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import appStore from "./store/store";
 import "./index.css";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -11,13 +13,16 @@ import ProductCards from "./components/ProductCard";
 import ProductDeatils from "./components/ProductDeatils";
 
 import { Suspense, lazy } from "react";
-const Grocery = lazy(()=> import(`./components/Grocery`))
+import Cart from "./components/Cart";
+import Memo from "./hooks/Memo";
+const Grocery = lazy(() => import(`./components/Grocery`));
+
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children:[
+    children: [
       {
         path: "/",
         element: <ProductCards />,
@@ -36,23 +41,37 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/grocery",
-        element: <Suspense fallback={<h1>Loading....</h1>}> <Grocery /> </Suspense> ,
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            {" "}
+            <Grocery />{" "}
+          </Suspense>
+        ),  
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
+      },
+      {
+        path:"/memo",
+        element:<Memo/>
       },
       {
         path: "/products/:productId",
         element: <ProductDeatils />,
       },
     ],
-    errorElement: <ErrorPage/>
+    errorElement: <ErrorPage />,
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-  <RouterProvider router={appRouter}>
-    <App />
-  </RouterProvider>
+  <Provider store={appStore}>
+    <RouterProvider router={appRouter}>
+      <App />
+    </RouterProvider>
+  </Provider>
   // </React.StrictMode>
-); 
+);

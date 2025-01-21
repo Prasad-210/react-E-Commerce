@@ -37,11 +37,34 @@
   }
 } */
 
+.App {
+  text-align: center;
+  background-color: #FAF9F6;;
+}
+
+.Heading{
+  text-decoration: none !important;
+  color: black;
+}
+.Heading:hover{
+  background-color: #FAF9F6;;
+  color: red;
+  transition: all 0.3s ease;
+}
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
 .navbar {
-  border: 1px solid black;
+  /* border: 1px solid black;/ */
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .menu-items {
@@ -63,42 +86,179 @@
   color: #da2727;
 }
 
-/* .title{
-  /* display: flex; */
-  /* text-overflow: clip; */
-/* } */ */
-
-/* .des{
-  width: 15rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-} */
-
-img {
+.images img {
   width: 100px;
   height: 100px;
 }
 
 .product-container {
   /* width: 100%; */
-  margin-top: 20px;
+  /* margin-top: 20px; */
   display: flex;
+  flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  border: 2px solid black;
+  padding-top: 20px;
+  /* border: 2px solid black; */
+  overflow-y: auto;
   width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .product {
   border: 1px solid black;
   display: inline-block;
-  padding: 5px;
+  padding: 8px 5px;
   margin: 10px;
   text-align: center;
   width: 12rem;
   background-color: #fff;
+  height: 350px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.product:hover{
-  background-color: rgb(217, 213, 213) 
+.product:hover {
+  background-color: #f0f0f0;
+}
+
+
+.title{
+  color: #000;
+}
+.btn-container{
+  display: flex;
+  /* justify-content: end; */
+  align-items: center;
+  margin: 0px 0px;
+}
+
+.btn {
+  margin: 10px 35px;
+  /* height: 24px; */
+  background-color: rgb(207, 167, 244);
+  color: #ffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.input-conatiner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 7%;
+}
+
+input{
+  padding: 8px;
+  border-radius: 5px;
+}
+.btn-input{
+  background-color: rgb(207, 167, 244);
+  color: #ffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.skeleton-conatiner{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.skeleton{
+  width: 200px;
+  background-color: #f0f0f0;
+  height: 400px;
+  margin: 10px;
+}
+
+/* src/ErrorPage.css */
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f4f8;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.error-message {
+  text-align: center;
+  background-color: #ff6f61;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  color: white;
+}
+
+.error-message h1 {
+  font-size: 5rem;
+  margin: 0;
+}
+
+.error-message h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.error-message p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.home-link {
+  background-color: white;
+  color: #ff6f61;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.home-link:hover {
+  background-color: #ff3e2d;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+
+/* Footer.css */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.productDetails{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  padding: 8px 5px;
+  margin: 10px;
+  text-align: center;
+  width: 50%;
+  background-color: #fff;
+  height: 250px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
